@@ -1,0 +1,15 @@
+{
+  "name": "boxingrebel-backend",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/boxingrebel-backend/src",
+  "tags": [],
+  "targets": {
+    "serve": {
+      "executor": "@nxrocks/nx-spring-boot:run",
+      "options": {
+        "root": "apps/boxingrebel-backend",
+        "args": ["-Dspring-boot.run.profiles=local"]
+      }
+    }
+  }
+}
