@@ -57,7 +57,7 @@ public class User {
     Assert.notNull("authorities", authorities);
   }
 
-  public void updateFormUser(User user) {
+  public void updateFromUser(User user) {
     this.email = user.email;
     this.firstname = user.firstname;
     this.lastname = user.lastname;
