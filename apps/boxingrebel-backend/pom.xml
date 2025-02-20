@@ -56,7 +56,13 @@
       		<scope>runtime</scope>
       		<optional>true</optional>
     	</dependency>
-		
+
+    <dependency>
+      <groupId>cc.jilt</groupId>
+      <artifactId>jilt</artifactId>
+      <version>1.7</version>
+      <scope>provided</scope> <!-- Jilt is not needed at runtime -->
+    </dependency>
 		<dependency>
 			<groupId>org.postgresql</groupId>
 			<artifactId>postgresql</artifactId>
