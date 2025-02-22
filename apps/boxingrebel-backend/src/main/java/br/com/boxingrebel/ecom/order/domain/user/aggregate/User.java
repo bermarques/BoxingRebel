@@ -30,7 +30,7 @@ public class User {
 
   private Set<Authority> authorities;
 
-  private Long DbId;
+  private Long dbId;
 
   private UserAddress userAddress;
 
@@ -45,7 +45,7 @@ public class User {
     this.lastModifiedDate = lastModifiedDate;
     this.createdDate = createdDate;
     this.authorities = authorities;
-    this.DbId = dbId;
+    this.dbId = dbId;
     this.userAddress = userAddress;
     this.lastSeen = lastSeen;
   }
@@ -134,7 +134,7 @@ public class User {
   }
 
   public Long getDbId() {
-    return DbId;
+    return dbId;
   }
 
   public UserAddress getUserAddress() {
