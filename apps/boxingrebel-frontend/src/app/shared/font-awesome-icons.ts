@@ -6,8 +6,10 @@ import {
 } from '@fortawesome/free-brands-svg-icons';
 import {
   faCartShopping,
+  faCheck,
   faTruckFast,
   faUser,
+  faXmark,
 } from '@fortawesome/free-solid-svg-icons';
 
 export const fontAwesomeIcons: IconDefinition[] = [
@@ -17,4 +19,6 @@ export const fontAwesomeIcons: IconDefinition[] = [
   faYoutube,
   faFacebook,
   faTwitter,
+  faXmark,
+  faCheck,
 ];
