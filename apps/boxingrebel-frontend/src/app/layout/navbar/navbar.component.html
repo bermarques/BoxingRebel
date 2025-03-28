@@ -19,37 +19,78 @@
           </ul>
         </details>
       </li>
+      @if (connectedUserQuery?.status() === 'success' &&
+      oauth2service.hasAnyAuthorities(connectedUserQuery?.data()!,
+      "ROLE_ADMIN")) {
       <li>
         <details #adminMenu>
           <summary>Admin</summary>
           <ul class="z-30">
-            <li><a href="/products">All</a></li>
+            <li>
+              <a
+                routerLink="admin/categories/list"
+                (click)="closeMenu(adminMenu)"
+                (clickOutside)="closeMenu(adminMenu)"
+                >Categories</a
+              >
+            </li>
+            <li>
+              <a
+                routerLink="admin/products/list"
+                (click)="closeMenu(adminMenu)"
+                (clickOutside)="closeMenu(adminMenu)"
+                >Products</a
+              >
+            </li>
           </ul>
         </details>
       </li>
+      }
     </div>
   </div>
   <div class="navbar-end pe-4 flex align-items-center">
     <div class="dropdown dropdown-end pe-4">
       <div tabindex="0" role="button">
-        @if(this.isConnected() && connectedUserQuery?.data()?.imageUrl !== null)
-        {
-        <img
-          src="{{ connectedUserQuery?.data()?.imageUrl }}"
-          alt="user-avatar"
-          class="avatar-unknown rounded-full"
-        />
+        @if (this.isConnected() && connectedUserQuery?.data()?.imageUrl !==
+        null) {
+        <div class="border border-solid rounded-full">
+          <img
+            src="{{ connectedUserQuery?.data()?.imageUrl }}"
+            alt="user-avatar"
+            class="avatar-unknown rounded-full"
+            width="45px"
+          />
+        </div>
         } @else {
         <fa-icon [icon]="['fas', 'user']" class="menu-icon"></fa-icon>
         }
       </div>
+      @if (this.isConnected()) {
       <ul
-        class="dropdown-content menu menu-large bg-base-100 rounded-box z-100 w-52 p-2 shadow"
+        class="dropdown-content menu menu-lg bg-base-100 rounded-box z-10 w-52 p-2 shadow"
+      >
+        <li>
+          <button
+            class="link"
+            (click)="closeDropDownMenu()"
+            routerLink="/users/orders"
+          >
+            My Orders
+          </button>
+        </li>
+        <li>
+          <button class="link" (click)="logout()">Logout</button>
+        </li>
+      </ul>
+      } @else {
+      <ul
+        class="dropdown-content menu menu-lg bg-base-100 rounded-box z-10 w-52 p-2 shadow"
       >
         <li>
           <button class="link" (click)="login()">Login</button>
         </li>
       </ul>
+      }
     </div>
     <div class="dropdown dropdown-end me-2" routerLink="/cart">
       <div tabindex="0" role="button">

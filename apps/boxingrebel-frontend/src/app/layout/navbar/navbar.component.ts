@@ -37,4 +37,8 @@ export class NavbarComponent {
       bodyElement.blur();
     }
   }
+
+  closeMenu(menu: HTMLDetailsElement) {
+    menu.removeAttribute('open');
+  }
 }

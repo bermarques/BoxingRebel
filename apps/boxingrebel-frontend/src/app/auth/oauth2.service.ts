@@ -54,14 +54,14 @@ export class Oauth2Service {
 
   hasAnyAuthorities(
     connectedUser: ConnectedUser,
-    authorities: Array<string>
+    authorities: Array<string> | string
   ): boolean {
     if (!Array.isArray(authorities)) {
       authorities = [authorities];
     }
     if (connectedUser.authorities) {
-      return authorities.some((authority) =>
-        connectedUser.authorities?.includes(authority)
+      return connectedUser.authorities.some((authority) =>
+        authorities?.includes(authority)
       );
     }
     return false;
