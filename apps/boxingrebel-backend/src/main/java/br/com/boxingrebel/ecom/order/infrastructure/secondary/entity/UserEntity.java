@@ -99,10 +99,11 @@ public class UserEntity extends AbstractAuditingEntity<Long> {
 
     if (user.getUserAddress() != null) {
       userEntityBuilder.addressCity(user.getUserAddress().city());
-      userEntityBuilder.addressCity(user.getUserAddress().country());
-      userEntityBuilder.addressCity(user.getUserAddress().zipCode());
-      userEntityBuilder.addressCity(user.getUserAddress().street());
+      userEntityBuilder.addressCountry(user.getUserAddress().country());
+      userEntityBuilder.addressZipCode(user.getUserAddress().zipCode());
+      userEntityBuilder.addressStreet(user.getUserAddress().street());
     }
+    System.out.println(user);
 
     return userEntityBuilder
       .authorities(AuthorityEntity.from(user.getAuthorities()))

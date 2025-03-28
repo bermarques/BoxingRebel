@@ -76,7 +76,7 @@ public class User {
     }
 
     if(attributes.containsKey("last_name")) {
-      userBuilder.email(new UserEmail(attributes.get("last_name").toString()));
+      userBuilder.lastname(new UserLastname(attributes.get("last_name").toString()));
     }
 
     if(attributes.containsKey("first_name")) {

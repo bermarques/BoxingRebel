@@ -21,7 +21,7 @@ public class SpringDataUserRepository implements UserRepository {
 
   @Override
   public void save(User user) {
-    if (user.getDbId() == null) {
+    if (user.getDbId() != null) {
       Optional<UserEntity> userToUpdateOpt = jpaUserRepository.findById(user.getDbId());
       if(userToUpdateOpt.isPresent()) {
         UserEntity userToUpdate = userToUpdateOpt.get();

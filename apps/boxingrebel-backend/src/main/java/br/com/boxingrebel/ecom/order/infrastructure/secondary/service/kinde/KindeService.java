@@ -41,11 +41,12 @@ public class KindeService {
   private Optional<String> getToken() {
     try {
       ResponseEntity<KindeAccessToken> accessToken = restClient.post()
-        .uri(apiUrl+"/oauth/token")
-        .body("grant_type=client_credentials&audience="+ URLEncoder.encode(audience, StandardCharsets.UTF_8))
+        .uri(apiUrl + "/oauth/token")
+        .body("grant_type=client_credentials&audience=" + URLEncoder.encode(audience, StandardCharsets.UTF_8))
         .accept(MediaType.APPLICATION_JSON)
         .contentType(MediaType.APPLICATION_FORM_URLENCODED)
-        .header("Authorization", "Basic" + Base64.getEncoder().encodeToString((clientId + ":" + clientSecret).getBytes(StandardCharsets.UTF_8)))
+        .header("Authorization",
+          "Basic " + Base64.getEncoder().encodeToString((clientId + ":" + clientSecret).getBytes(StandardCharsets.UTF_8)))
         .header("Content-Type", ContentType.APPLICATION_FORM_URLENCODED.getMimeType())
         .retrieve()
         .toEntity(KindeAccessToken.class);
