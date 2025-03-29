@@ -103,7 +103,6 @@ public class UserEntity extends AbstractAuditingEntity<Long> {
       userEntityBuilder.addressZipCode(user.getUserAddress().zipCode());
       userEntityBuilder.addressStreet(user.getUserAddress().street());
     }
-    System.out.println(user);
 
     return userEntityBuilder
       .authorities(AuthorityEntity.from(user.getAuthorities()))
